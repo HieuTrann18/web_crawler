@@ -19,7 +19,21 @@ const articleSchema = new mongoose.Schema({
   publishedAt: {
     type: Date,
     required: true
+  },
+
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+    required: true
+  },
+
+   priority: {
+    type: Number,
+    default: 5,
+    min: 1,
+    max: 10
   }
+
 }, { timestamps: true });
 
 module.exports = mongoose.model("Article", articleSchema);
