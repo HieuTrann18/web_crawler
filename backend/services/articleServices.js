@@ -2,7 +2,7 @@ const Article = require('../models/Article')
 
 module.exports = {
       getAll: async () => {
-            return await Article.find().sort({createdAt: -1})
+            return await Article.find().sort({priority: 1, publishedAt: -1})
       },
 
       getById: async (id) => {
